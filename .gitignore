@@ -1,0 +1,50 @@
+# Workspace (data, checkpoints, results) -- never committed
+workspace/
+*.pt
+*.pth
+
+# Datasets
+data/kvasir_split/
+data/kvasir_seg_yolo/
+data/cvc_clinicdb/
+data/etis_larib/
+data/*.zip
+data/*.rar
+data/*.tar.gz
+
+# Generated outputs
+calibration_results/
+runs/
+runs_*/
+results/
+cache*/
+figures/
+*.log
+
+# LaTeX fragments produced by the supplementary scripts
+supplementary_tables.tex
+supplementary_test_inventory.tex
+
+# Cached prediction records: the bundled copy under data/raw_records/ IS
+# committed (it is what lets the statistical scripts run without a GPU);
+# anything regenerated elsewhere is not.
+*.npz
+*.npy
+!data/raw_records/*.npz
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Backups
+*.bak
+*.bak[0-9]*
+*~
+
+# OS
+.DS_Store
+Thumbs.db
