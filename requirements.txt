@@ -1,0 +1,12 @@
+# Detection framework version is pinned deliberately: mixing versions produced
+# spurious differences in detection accuracy in earlier work from this line.
+ultralytics==8.4.104
+
+torch>=2.0.0
+numpy>=1.21
+scipy>=1.7
+Pillow>=9.0
+matplotlib>=3.5
+
+# Required only for the data overlap audit (perceptual hashing)
+imagehash>=4.3
