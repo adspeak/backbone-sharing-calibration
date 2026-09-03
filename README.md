@@ -289,7 +289,7 @@ confound the effect under study.
 }
 ```
 
-Code: https://github.com/<your-username>/backbone-sharing-calibration
+Code: https://github.com/adspeak/backbone-sharing-calibration
 
 ---
 
