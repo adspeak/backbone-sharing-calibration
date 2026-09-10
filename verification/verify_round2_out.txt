@@ -1,0 +1,171 @@
+
+===============================================================================================
+[P] 环境探查（供后续补检验用，不计入 PASS/FAIL）
+===============================================================================================
+  /root/autodl-tmp/calibration_results/raw_records_external 存在
+  /root/autodl-tmp/GI_P2_data                        存在
+  /root/autodl-tmp/CVC_raw                           存在
+  /root/autodl-tmp/datasets                          存在
+  raw_records_external: 12 个文件
+      cvc_A_independent_cvc_seed42.npz
+      cvc_A_independent_cvc_seed43.npz
+      cvc_A_independent_cvc_seed44.npz
+      cvc_B_shared_cvc_seed42.npz
+      cvc_B_shared_cvc_seed43.npz
+      cvc_B_shared_cvc_seed44.npz
+      etis_A_independent_etis_seed42.npz
+      etis_A_independent_etis_seed43.npz
+      etis_A_independent_etis_seed44.npz
+      etis_B_shared_etis_seed42.npz
+      etis_B_shared_etis_seed43.npz
+      etis_B_shared_etis_seed44.npz
+      字段: {'confidence': (681,), 'is_tp': (681,), 'image_idx': (681,)}
+  image_level_bootstrap.json                       顶层键: ['A_independent', 'C_shallow', 'C_deep', 'B_shared', 'gapfc_A_independent', 'gapfc_B_shared']
+      首元素类型 dict: ['display', 'rows']
+  exp1_size_stratified_results.json                顶层键: ['A_independent', 'C_shallow', 'C_deep', 'B_shared']
+      首元素类型 list: [{'run': 'A_independent_seed42', 'share_until': 0, 'stratified': {'small': {'n': 173, 'dec
+  etis_exp5_etis_size_stratified_results.json      顶层键: ['A_independent_etis', 'B_shared_etis']
+      首元素类型 list: [{'run': 'A_independent_etis_seed42', 'share_until': 0, 'stratified': {'small': {'n': 16, 
+  exp5_calibration_results.json                    顶层键: ['CVC-ClinicDB', 'ETIS-LaribPolypDB']
+      首元素类型 dict: ['A_independent_cvc', 'B_shared_cvc']
+  supplementary_ci_results.json                    顶层键: ['A_independent', 'C_shallow', 'C_deep', 'B_shared', 'gapfc_A_independent', 'gapfc_B_shared']
+      首元素类型 dict: ['display', 'rows']
+  imagehash / PIL: 可用
+
+===============================================================================================
+[1] v30 本轮改动的复验
+===============================================================================================
+  PASS  LAG mAP@50 差                                           论文=-0.0960    重算=-0.0961    差=-0.0001
+  PASS  LAG mAP@50 t                                           论文=-3.9200    重算=-3.9203    差=-0.0003
+  PASS  LAG mAP@50 p                                           论文=0.0060     重算=0.0057     差=-0.0003
+  PASS  GAP mAP@50 差                                           论文=-0.0250    重算=-0.0251    差=-0.0001
+  PASS  GAP mAP@50 t                                           论文=-3.8600    重算=-3.8591    差=+0.0009
+  PASS  GAP mAP@50 p                                           论文=0.0060     重算=0.0062     差=+0.0002
+  PASS  mAP@50 交互 t                                            论文=-2.9100    重算=-2.9121    差=-0.0021
+  PASS  mAP@50 交互 dz                                           论文=-1.0300    重算=-1.0296    差=+0.0004
+  PASS  cls top-1 交互 p                                         论文=0.5650     重算=0.5648     差=-0.0002
+  PASS  阈值0.25 Adaptive ECE                                    论文=0.0025     重算=0.0025     差=+0.0000
+  PASS  阈值0.25 Brier                                           论文=-0.0108    重算=-0.0108    差=-0.0000
+  PASS  阈值0.25 NLL                                             论文=-0.0254    重算=-0.0254    差=-0.0000
+  PASS  联合训练模型数                                                论文=50.0000    重算=50.0000    差=+0.0000
+  PASS  预测总数 (50 模型)                                           论文=13213.0000 重算=13213.0000 差=+0.0000
+  PASS  r (50 模型)                                              论文=-0.7400    重算=-0.7438    差=-0.0038
+  PASS  Levene W (Brown--Forsythe)                             论文=5.7000     重算=5.7035     差=+0.0035
+  PASS  Levene p (Brown--Forsythe)                             论文=0.0060     重算=0.0055     差=-0.0005
+  PASS  mAP 差 95%CI 下限                                         论文=-0.0280    重算=-0.0281    差=-0.0001
+  PASS  mAP 差 95%CI 上限                                         论文=0.0330     重算=0.0325     差=-0.0005
+
+===============================================================================================
+[2] §5.4 温度缩放派生量（与 ts_top1_v28_results.json 对齐）
+===============================================================================================
+  PASS  tab:ts T   single_task                                 论文=2.5510     重算=2.5510     差=-0.0000
+  PASS  tab:ts D-ECE后 single_task                              论文=0.0991     重算=0.0991     差=-0.0000
+  PASS  tab:ts Brier后 single_task                              论文=0.1613     重算=0.1613     差=+0.0000
+  PASS  tab:ts T   A_independent                               论文=2.6140     重算=2.6139     差=-0.0001
+  PASS  tab:ts D-ECE后 A_independent                            论文=0.1173     重算=0.1173     差=-0.0000
+  PASS  tab:ts Brier后 A_independent                            论文=0.1660     重算=0.1660     差=+0.0000
+  PASS  tab:ts T   C_shallow                                   论文=2.6970     重算=2.6966     差=-0.0004
+  PASS  tab:ts D-ECE后 C_shallow                                论文=0.1292     重算=0.1292     差=+0.0000
+  PASS  tab:ts Brier后 C_shallow                                论文=0.1585     重算=0.1585     差=+0.0000
+  PASS  tab:ts T   C_deep                                      论文=3.4870     重算=3.4868     差=-0.0002
+  PASS  tab:ts D-ECE后 C_deep                                   论文=0.1615     重算=0.1615     差=+0.0000
+  PASS  tab:ts Brier后 C_deep                                   论文=0.1875     重算=0.1875     差=+0.0000
+  PASS  tab:ts T   B_shared                                    论文=3.6980     重算=3.6975     差=-0.0005
+  PASS  tab:ts D-ECE后 B_shared                                 论文=0.1765     重算=0.1765     差=+0.0000
+  PASS  tab:ts Brier后 B_shared                                 论文=0.1888     重算=0.1888     差=-0.0000
+  PASS  tab:ts T   gapfc_A_independent                         论文=2.8320     重算=2.8324     差=+0.0004
+  PASS  tab:ts D-ECE后 gapfc_A_independent                      论文=0.1297     重算=0.1297     差=+0.0000
+  PASS  tab:ts Brier后 gapfc_A_independent                      论文=0.1710     重算=0.1710     差=+0.0000
+  PASS  tab:ts T   gapfc_B_shared                              论文=3.0880     重算=3.0878     差=-0.0002
+  PASS  tab:ts D-ECE后 gapfc_B_shared                           论文=0.1484     重算=0.1484     差=+0.0000
+  PASS  tab:ts Brier后 gapfc_B_shared                           论文=0.1755     重算=0.1755     差=+0.0000
+  PASS  tab:ts T   F_frozen                                    论文=3.7550     重算=3.7555     差=+0.0005
+  PASS  tab:ts D-ECE后 F_frozen                                 论文=0.1812     重算=0.1812     差=+0.0000
+  PASS  tab:ts Brier后 F_frozen                                 论文=0.1983     重算=0.1983     差=-0.0000
+  PASS  TS 改善下界 %                                              论文=18.0000    重算=18.3748    差=+0.3748
+  PASS  TS 改善上界 %                                              论文=40.0000    重算=39.7588    差=-0.2412
+  PASS  LAG 温度增幅 %                                             论文=42.0000    重算=41.4586    差=-0.5414
+  PASS  GAP 温度增幅 %                                             论文=9.0000     重算=9.0144     差=+0.0144
+
+===============================================================================================
+[3] §5.4 宽松协议 AUC（论文用于说明修订了早先的读法）
+===============================================================================================
+  PASS  宽松 AUC A                                               论文=0.8663     重算=0.8663     差=-0.0000
+  PASS  宽松 AUC B                                               论文=0.8062     重算=0.8062     差=+0.0000
+  PASS  宽松 AUC p                                               论文=0.0130     重算=0.0129     差=-0.0001
+
+===============================================================================================
+[4] §4.1 两种重采样方案的区间比较
+===============================================================================================
+      顶层键: ['A_independent', 'C_shallow', 'C_deep', 'B_shared', 'gapfc_A_independent', 'gapfc_B_shared', 'F_frozen']
+      区间宽度 pred_ci                          n= 200 均值=0.1611
+      区间宽度 img_ci                           n= 200 均值=0.1567
+      >>> 论文称两方案端点差 < 0.006；请人工对照上面两组宽度
+
+===============================================================================================
+[5] §5.5 外部数据集
+===============================================================================================
+  SKIP  cvc 全部检验                                               命名不匹配，实际: ['cvc_A_independent_cvc_seed42.npz', 'cvc_A_independent_cvc_seed43.npz', 'cvc_A_independent_cvc_seed44.npz', 'cvc_B_shared_cvc_seed42.npz']
+  SKIP  etis 全部检验                                              命名不匹配，实际: ['etis_A_independent_etis_seed42.npz', 'etis_A_independent_etis_seed43.npz', 'etis_A_independent_etis_seed44.npz', 'etis_B_shared_etis_seed42.npz']
+
+===============================================================================================
+[6] §5.6 ETIS 分层分析
+===============================================================================================
+      顶层键: ['A_independent_etis', 'B_shared_etis']
+      >>> tab:size 论文值 Small 0.2113/0.0965  Medium 0.1669/0.2131  Large 0.1214/0.2256
+      >>> 各层预测数论文称 10--48；请对照下面输出
+      A_independent_etis (list)
+        [len=3]
+          run (str)
+          share_until = 0
+          stratified (dict)
+            small (dict)
+            medium (dict)
+            large (dict)
+      B_shared_etis (list)
+        [len=3]
+          run (str)
+          share_until = 11
+          stratified (dict)
+            small (dict)
+            medium (dict)
+            large (dict)
+
+===============================================================================================
+[7] §3.1 病灶相对面积分位数  论文: Kvasir 18.47%  CVC 9.81%  ETIS 2.85%  ETIS Q1 1.29%
+===============================================================================================
+      使用目录 /root/autodl-tmp/GI_CVC/labels/train  框数=490
+  FAIL  Kvasir-SEG 相对面积中位数 %                                   论文=18.4700    重算=9.8095     差=-8.6605
+  SKIP  CVC-ClinicDB 相对面积中位数                                   未找到标签目录 (模式 **/cvc*/**/labels/train)
+  SKIP  ETIS 相对面积中位数                                           未找到标签目录 (模式 **/etis*/**/labels/train)
+
+===============================================================================================
+[8] §3.1 近重复审计 / §4.3 重叠审计
+===============================================================================================
+      论文: CVC 6/122(5%) 28(23%) 101(83%)；ETIS 3(8%) 12(31%) 24(62%)
+      论文: cls-train∩det-val=2  cls-train∩det-train=10  cls-val∩det-train=2  cls-val∩det-val=0
+      >>> 需要图像目录路径才能跑。请跑:
+          find /root/autodl-tmp -type d -name images | head -20
+  SKIP  哈希审计                                                   待提供图像目录路径
+
+===============================================================================================
+[9] S1 自助区间抽查（single_task seed42，B=1000，图像级重采样）
+===============================================================================================
+  PASS  S1 dece 点估计                                            论文=0.1269     重算=0.1269     差=+0.0000
+  PASS  S1 dece CI 下限                                          论文=0.0880     重算=0.0878     差=-0.0002
+  PASS  S1 dece CI 上限                                          论文=0.1910     重算=0.1861     差=-0.0049
+  PASS  S1 aece 点估计                                            论文=0.0997     重算=0.0997     差=+0.0000
+  PASS  S1 aece CI 下限                                          论文=0.0790     重算=0.0763     差=-0.0027
+  PASS  S1 aece CI 上限                                          论文=0.1740     重算=0.1759     差=+0.0019
+  PASS  S1 brier 点估计                                           论文=0.1578     重算=0.1578     差=+0.0000
+  PASS  S1 brier CI 下限                                         论文=0.1170     重算=0.1187     差=+0.0017
+  PASS  S1 brier CI 上限                                         论文=0.2010     重算=0.2010     差=-0.0000
+  PASS  S1 nll 点估计                                             论文=0.5383     重算=0.5383     差=+0.0000
+  FAIL  S1 nll CI 下限                                           论文=0.3940     重算=0.4035     差=+0.0095
+  PASS  S1 nll CI 上限                                           论文=0.6900     重算=0.6900     差=-0.0000
+      注: 自助区间依赖随机种子，±0.008 容差内即认为一致
+
+===============================================================================================
+汇总
+===============================================================================================
+  PASS 61   FAIL 2   SKIP 5

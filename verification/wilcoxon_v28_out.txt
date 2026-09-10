@@ -1,0 +1,91 @@
+========================================================================
+发现的配置（配置名 -> 种子）
+========================================================================
+  A_independent                    [42, 43, 44, 45, 46, 47, 48, 49]
+  B_shared                         [42, 43, 44, 45, 46, 47, 48, 49]
+  C_deep                           [42, 43, 44, 45, 46, 47]
+  C_shallow                        [42, 43, 44, 45, 46, 47]
+  F_frozen                         [42, 43, 44, 45, 46, 47]
+  gapfc_A_independent              [42, 43, 44, 45, 46, 47, 48, 49]
+  gapfc_B_shared                   [42, 43, 44, 45, 46, 47, 48, 49]
+  single_task                      [42, 43, 44, 45, 46, 47, 48, 49]
+
+映射: A=A_independent  B=B_shared  gapfc-A=gapfc_A_independent  gapfc-B=gapfc_B_shared  F-frozen=F_frozen
+
+========================================================================
+[1] 自检 —— 下列 t 检验 p 值应与正文 / 检验清单一致
+    参考值: D-ECE Ind-vs-shared p=0.0050 | Interaction p=0.0138
+            D-ECE Residual GAP+FC p=0.2425 | Frozen vs shared p=0.5532
+========================================================================
+metric        comparison                      mean       t     p(t)     dz   n           N images
+D-ECE         Independent vs shared        +0.0531   4.035   0.0050   1.43   8            163-198
+D-ECE         Residual under GAP+FC        +0.0065   1.277   0.2425   0.45   8            179-193
+D-ECE         Frozen backbone vs shared    +0.0091   0.635   0.5532   0.26   6            151-168
+D-ECE         Interaction                  +0.0466   3.263   0.0138   1.15   8          (derived)
+Adaptive ECE  Independent vs shared        +0.0549   4.134   0.0044   1.46   8            163-198
+Adaptive ECE  Residual under GAP+FC        +0.0022   0.358   0.7310   0.13   8            179-193
+Adaptive ECE  Frozen backbone vs shared    +0.0136   0.927   0.3964   0.38   6            151-168
+Adaptive ECE  Interaction                  +0.0528   4.297   0.0036   1.52   8          (derived)
+Brier         Independent vs shared        +0.0485   3.873   0.0061   1.37   8            163-198
+Brier         Residual under GAP+FC        +0.0093   1.590   0.1559   0.56   8            179-193
+Brier         Frozen backbone vs shared    +0.0063   0.413   0.6970   0.17   6            151-168
+Brier         Interaction                  +0.0392   2.904   0.0229   1.03   8          (derived)
+NLL           Independent vs shared        +0.2672   4.608   0.0025   1.63   8            163-198
+NLL           Residual under GAP+FC        +0.0754   3.448   0.0107   1.22   8            179-193
+NLL           Frozen backbone vs shared    -0.0226  -0.322   0.7602  -0.13   6            151-168
+NLL           Interaction                  +0.1918   3.605   0.0087   1.27   8          (derived)
+
+========================================================================
+[2] Wilcoxon signed-rank（新协议）—— 与 t 检验判定是否一致
+========================================================================
+metric        comparison                     p(t)     p(W)   n  verdict
+D-ECE         Independent vs shared        0.0050   0.0078   8  agree
+D-ECE         Residual under GAP+FC        0.2425   0.2500   8  agree
+D-ECE         Frozen backbone vs shared    0.5532   0.6875   6  agree
+D-ECE         Interaction                  0.0138   0.0156   8  agree
+Adaptive ECE  Independent vs shared        0.0044   0.0078   8  agree
+Adaptive ECE  Residual under GAP+FC        0.7310   0.8438   8  agree
+Adaptive ECE  Frozen backbone vs shared    0.3964   0.5625   6  agree
+Adaptive ECE  Interaction                  0.0036   0.0078   8  agree
+Brier         Independent vs shared        0.0061   0.0078   8  agree
+Brier         Residual under GAP+FC        0.1559   0.3828   8  agree
+Brier         Frozen backbone vs shared    0.6970   0.8438   6  agree
+Brier         Interaction                  0.0229   0.0391   8  agree
+NLL           Independent vs shared        0.0025   0.0078   8  agree
+NLL           Residual under GAP+FC        0.0107   0.0078   8  agree
+NLL           Frozen backbone vs shared    0.7602   0.6875   6  agree
+NLL           Interaction                  0.0087   0.0234   8  agree
+
+判定不一致的项数: 0 / 16
+Wilcoxon p 恰为 0.0078（n=8 的下限）的项数: 6
+
+>>> 正文 §5 开头『all sixteen cases』与 §6.5『agree throughout』可保留原样
+
+========================================================================
+[3] 粘贴到 article 的 tab:supp-wilcoxon（整块替换 tabular 内容）
+========================================================================
+\begin{tabular}{llccc}
+\toprule
+Metric & Comparison & $t$-test $p$ & Wilcoxon $p$ & $n$ \\
+\midrule
+D-ECE        & Independent vs shared     & 0.0050 & 0.0078 & 8 \\
+             & Residual under GAP+FC     & 0.2425 & 0.2500 & 8 \\
+             & Frozen backbone vs shared & 0.5532 & 0.6875 & 6 \\
+             & Interaction               & 0.0138 & 0.0156 & 8 \\
+\midrule
+Adaptive ECE & Independent vs shared     & 0.0044 & 0.0078 & 8 \\
+             & Residual under GAP+FC     & 0.7310 & 0.8438 & 8 \\
+             & Frozen backbone vs shared & 0.3964 & 0.5625 & 6 \\
+             & Interaction               & 0.0036 & 0.0078 & 8 \\
+\midrule
+Brier        & Independent vs shared     & 0.0061 & 0.0078 & 8 \\
+             & Residual under GAP+FC     & 0.1559 & 0.3828 & 8 \\
+             & Frozen backbone vs shared & 0.6970 & 0.8438 & 6 \\
+             & Interaction               & 0.0229 & 0.0391 & 8 \\
+\midrule
+NLL          & Independent vs shared     & 0.0025 & 0.0078 & 8 \\
+             & Residual under GAP+FC     & 0.0107 & 0.0078 & 8 \\
+             & Frozen backbone vs shared & 0.7602 & 0.6875 & 6 \\
+             & Interaction               & 0.0087 & 0.0234 & 8 \\
+\bottomrule
+\end{tabular}
