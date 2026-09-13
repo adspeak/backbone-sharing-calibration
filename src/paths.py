@@ -58,6 +58,11 @@ _BUNDLED_EXTERNAL = REPO / "data" / "raw_records_external"
 EXTERNAL_RECORDS_DIR = (_BUNDLED_EXTERNAL if _BUNDLED_EXTERNAL.is_dir()
                         else CALIB / "raw_records_external")
 
+# JSON summaries the verification scripts read. Bundled under data/metrics/ so a
+# clone needs no workspace; scripts still WRITE their own output into CALIB.
+_BUNDLED_METRICS = REPO / "data" / "metrics"
+METRICS_DIR = _BUNDLED_METRICS if _BUNDLED_METRICS.is_dir() else CALIB
+
 for _d in (RUNS, RESULTS, CALIB, CACHE):
     _d.mkdir(parents=True, exist_ok=True)
 if RECORDS_DIR is not _BUNDLED_RECORDS:
