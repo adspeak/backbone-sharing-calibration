@@ -17,7 +17,7 @@
 
 零推理。无卡模式即可。
 用法:
-    cd /root/autodl-tmp/code
+    cd verification
     python3 verify_round2_v30.py > verify_round2_out.txt 2>&1
     grep -E ' FAIL | SKIP ' verify_round2_out.txt
 """
@@ -26,10 +26,16 @@ import numpy as np
 from pathlib import Path
 from scipy import stats
 
-ROOT  = Path("/root/autodl-tmp")
-CALIB = ROOT/"calibration_results"
-REC   = CALIB/"raw_records_198_img"
-EXT   = CALIB/"raw_records_external"
+# Paths resolve through src/paths.py so the script runs from a fresh clone with
+# no configuration: the cached records bundled under data/raw_records/ are used
+# when present, otherwise the workspace named by BACKBONE_CALIB_ROOT.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+from paths import CALIB, RECORDS_DIR, EXTERNAL_RECORDS_DIR  # noqa: E402
+
+from paths import ROOT  # noqa: E402
+
+REC = RECORDS_DIR
+EXT = EXTERNAL_RECORDS_DIR
 S8 = [42,43,44,45,46,47,48,49]; S6=[42,43,44,45,46,47]; S3=[42,43,44]
 NB, EPS = 10, 1e-12
 A,B  = "A_independent","B_shared"
@@ -300,7 +306,7 @@ for name,pat,pv,q1 in [("Kvasir-SEG","**/labels/train",18.47,None),
     CHECK(f"{name} 相对面积中位数 %",float(100*np.median(a)),pv,0.05)
     if q1: CHECK(f"{name} 相对面积 Q1 %",float(100*np.percentile(a,25)),q1,0.05)
 if not found:
-    print("      >>> 未定位到 YOLO 标签目录。请跑: find /root/autodl-tmp -type d -name labels | head")
+    print("      >>> 未定位到 YOLO 标签目录。请跑: find $BACKBONE_CALIB_ROOT -type d -name labels | head")
 
 # ============================================================ 8. 哈希审计
 SECTION("[8] §3.1 近重复审计 / §4.3 重叠审计")
@@ -310,7 +316,7 @@ if not HAS_HASH:
     SKIP("哈希审计","imagehash/PIL 不可用；pip install imagehash pillow 后可补")
 else:
     print("      >>> 需要图像目录路径才能跑。请跑:")
-    print("          find /root/autodl-tmp -type d -name images | head -20")
+    print("          find $BACKBONE_CALIB_ROOT -type d -name images | head -20")
     SKIP("哈希审计","待提供图像目录路径")
 
 # ============================================================ 9. S1 自助区间抽查

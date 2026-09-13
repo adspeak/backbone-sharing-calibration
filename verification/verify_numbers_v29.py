@@ -10,7 +10,7 @@
   single_task_accuracy.json   检测-only 基线逐种子精度
 
 用法:
-    cd /root/autodl-tmp/code
+    cd verification
     python3 verify_numbers_v29.py > verify_v29_out.txt 2>&1
     grep -c FAIL verify_v29_out.txt
 """
@@ -19,8 +19,13 @@ import numpy as np
 from pathlib import Path
 from scipy import stats
 
-REC   = Path("/root/autodl-tmp/calibration_results/raw_records_198_img")
-CALIB = Path("/root/autodl-tmp/calibration_results")
+# Paths resolve through src/paths.py so the script runs from a fresh clone with
+# no configuration: the cached records bundled under data/raw_records/ are used
+# when present, otherwise the workspace named by BACKBONE_CALIB_ROOT.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+from paths import CALIB, RECORDS_DIR, EXTERNAL_RECORDS_DIR  # noqa: E402
+
+REC = RECORDS_DIR
 S8 = [42, 43, 44, 45, 46, 47, 48, 49]
 S6 = [42, 43, 44, 45, 46, 47]
 NB, EPS = 10, 1e-12

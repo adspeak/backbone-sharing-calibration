@@ -11,17 +11,25 @@
   [F] §4.1 两种重采样    —— 读 image_level_bootstrap / supplementary_ci
 
 用法:
-    cd /root/autodl-tmp/code
+    cd verification
     python3 verify_round3_v30.py > verify_round3_out.txt 2>&1
     cat verify_round3_out.txt
 """
-import json, os, glob, itertools
+import json, os, sys, glob, itertools
 import numpy as np
 from pathlib import Path
 from scipy import stats
 
-ROOT=Path("/root/autodl-tmp"); CALIB=ROOT/"calibration_results"
-REC=CALIB/"raw_records_198_img"; EXT=CALIB/"raw_records_external"
+# Paths resolve through src/paths.py so the script runs from a fresh clone with
+# no configuration: the cached records bundled under data/raw_records/ are used
+# when present, otherwise the workspace named by BACKBONE_CALIB_ROOT.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+from paths import CALIB, RECORDS_DIR, EXTERNAL_RECORDS_DIR  # noqa: E402
+
+from paths import ROOT  # noqa: E402
+
+REC = RECORDS_DIR
+EXT = EXTERNAL_RECORDS_DIR
 S3=[42,43,44]; S8=list(range(42,50)); NB,EPS=10,1e-12
 A,B="A_independent","B_shared"
 

@@ -14,7 +14,7 @@
 
 零推理，无卡模式即可。
 用法:
-    cd /root/autodl-tmp/code
+    cd verification
     python3 ts_top1_v28.py > ts_top1_v28_out.txt 2>&1
 """
 import json
@@ -24,8 +24,13 @@ from pathlib import Path
 from scipy import optimize, stats
 from sklearn.model_selection import KFold
 
-RECORDS = Path("/root/autodl-tmp/calibration_results/raw_records_198_img")
-CALIB   = Path("/root/autodl-tmp/calibration_results")
+# Paths resolve through src/paths.py so the script runs from a fresh clone with
+# no configuration: the cached records bundled under data/raw_records/ are used
+# when present, otherwise the workspace named by BACKBONE_CALIB_ROOT.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+from paths import CALIB, RECORDS_DIR, EXTERNAL_RECORDS_DIR  # noqa: E402
+
+RECORDS = RECORDS_DIR
 S8 = [42, 43, 44, 45, 46, 47, 48, 49]
 S6 = [42, 43, 44, 45, 46, 47]
 NB, EPS, N_FOLDS, FOLD_SEED = 10, 1e-6, 5, 42
