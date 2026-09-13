@@ -28,7 +28,8 @@ from sklearn.model_selection import KFold
 # no configuration: the cached records bundled under data/raw_records/ are used
 # when present, otherwise the workspace named by BACKBONE_CALIB_ROOT.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
-from paths import CALIB, RECORDS_DIR, EXTERNAL_RECORDS_DIR  # noqa: E402
+from paths import (CALIB, METRICS_DIR, RECORDS_DIR,  # noqa: E402
+                   EXTERNAL_RECORDS_DIR)
 
 RECORDS = RECORDS_DIR
 S8 = [42, 43, 44, 45, 46, 47, 48, 49]
@@ -181,7 +182,7 @@ def main():
     print("    与 ts_image_folds.json 对比。T 允许有差(折的随机种子不同),")
     print("    但 bd(TS 前 D-ECE) 必须几乎完全一致。")
     print("=" * 78)
-    ref = json.load(open(CALIB / "ts_image_folds.json"))
+    ref = json.load(open(METRICS_DIR / "ts_image_folds.json"))
     perm = run_protocol("permissive")
     print(f"{'config':22s} {'bd_new':>8s} {'bd_ref':>8s} {'差':>8s} "
           f"{'T_new':>7s} {'T_ref':>7s}")

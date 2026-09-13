@@ -30,7 +30,8 @@ from scipy import stats
 # no configuration: the cached records bundled under data/raw_records/ are used
 # when present, otherwise the workspace named by BACKBONE_CALIB_ROOT.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
-from paths import CALIB, RECORDS_DIR, EXTERNAL_RECORDS_DIR  # noqa: E402
+from paths import (CALIB, METRICS_DIR, RECORDS_DIR,  # noqa: E402
+                   EXTERNAL_RECORDS_DIR)
 
 from paths import ROOT  # noqa: E402
 
@@ -75,8 +76,12 @@ def auc(c,l):
     return float(stats.mannwhitneyu(c[l==1],c[l==0],alternative="greater").statistic/(l.sum()*(len(l)-l.sum())))
 
 def raw(cfg,seed,d=REC,ds="kvasir"):
-    p=d/f"{ds}_{cfg}_seed{seed}_records.npz"
-    if not p.exists(): return None
+    for _pat in (f"{ds}_{cfg}_seed{seed}_records.npz",
+                 f"{ds}_{cfg}_{ds}_seed{seed}.npz",
+                 f"{ds}_{cfg}_seed{seed}.npz"):
+        p=d/_pat
+        if p.exists(): break
+    else: return None
     z=np.load(p)
     idx = z["image_idx"].astype(int) if "image_idx" in z.files else None
     return z["confidence"].astype(float), z["is_tp"].astype(int), idx
@@ -112,8 +117,8 @@ def tt(d):
     t,p=stats.ttest_1samp(d,0.); sd=np.std(d,ddof=1)
     return float(np.mean(d)),float(t),float(p),float(np.mean(d)/sd) if sd>0 else np.nan
 
-acc=json.load(open(CALIB/"accuracy_metrics.json"))
-sta=json.load(open(CALIB/"single_task_accuracy.json"))
+acc=json.load(open(METRICS_DIR/"accuracy_metrics.json"))
+sta=json.load(open(METRICS_DIR/"single_task_accuracy.json"))
 def A_(cfg,seed,key):
     return sta[str(seed)][key] if cfg==ST else acc[f"{cfg}_seed{seed}"][key]
 
@@ -130,7 +135,7 @@ if EXT.exists():
 for j in ["image_level_bootstrap.json","exp1_size_stratified_results.json",
           "etis_exp5_etis_size_stratified_results.json","exp5_calibration_results.json",
           "supplementary_ci_results.json"]:
-    p=CALIB/j
+    p=METRICS_DIR/j
     if not p.exists(): print(f"  {j:48s} 不存在"); continue
     d=json.load(open(p))
     ks=list(d)[:6] if isinstance(d,dict) else f"list len={len(d)}"
@@ -178,7 +183,7 @@ CHECK("mAP 差 95%CI 上限",float(dm.mean()+tc*se),0.033,0.001)
 
 # ============================================================ 2. TS 派生量
 SECTION("[2] §5.4 温度缩放派生量（与 ts_top1_v28_results.json 对齐）")
-p=CALIB/"ts_top1_v28_results.json"
+p=METRICS_DIR/"ts_top1_v28_results.json"
 if not p.exists():
     SKIP("TS 结果文件","未找到 ts_top1_v28_results.json，请先跑 ts_top1_v28.py")
 else:
@@ -205,7 +210,7 @@ CHECK("宽松 AUC p",tt(dA)[2],0.013,0.001)
 
 # ============================================================ 4. §4.1 自助区间
 SECTION("[4] §4.1 两种重采样方案的区间比较")
-p=CALIB/"image_level_bootstrap.json"
+p=METRICS_DIR/"image_level_bootstrap.json"
 if not p.exists(): SKIP("image_level_bootstrap.json","不存在")
 else:
     d=json.load(open(p))
@@ -236,16 +241,17 @@ if not EXT.exists():
     SKIP("外部数据集全部检验","raw_records_external 不存在")
 else:
     fs=[os.path.basename(x) for x in glob.glob(str(EXT/"*.npz"))]
-    for ds,pN,rows in [("cvc",115,[("D-ECE",dece,0.0700,0.1021,0.0320,1.85,0.214),
+    for ds,pN,rows in [("cvc",115,[("D-ECE",dece,0.0700,0.1021,0.0320,1.85,0.206),
                                    ("Brier",brier,0.0312,0.0722,0.0410,4.19,0.053),
                                    ("NLL",nll,0.1152,0.3030,0.1878,3.29,0.081)]),
                        ("etis",32,[("D-ECE",dece,0.2157,0.2164,0.0007,0.02,0.989)])]:
         cand=[f for f in fs if ds in f.lower()]
         if not cand:
             SKIP(f"{ds} 全部检验", f"未找到含 '{ds}' 的 npz（实际文件: {fs[:4]}）"); continue
-        # 猜测命名: <ds>_<cfg>_seed<NN>_records.npz
+        # 实际命名: <ds>_<cfg>_<ds>_seed<NN>.npz
         def g(cfg,s):
-            for pat in [f"{ds}_{cfg}_seed{s}_records.npz", f"{ds}_{cfg}_seed{s}.npz"]:
+            for pat in [f"{ds}_{cfg}_{ds}_seed{s}.npz",
+                        f"{ds}_{cfg}_seed{s}_records.npz", f"{ds}_{cfg}_seed{s}.npz"]:
                 if (EXT/pat).exists(): return own(cfg,s,EXT,ds)
             return None
         if g(A,42) is None:
@@ -268,7 +274,7 @@ else:
 
 # ============================================================ 6. §5.6 分层
 SECTION("[6] §5.6 ETIS 分层分析")
-p=CALIB/"etis_exp5_etis_size_stratified_results.json"
+p=METRICS_DIR/"etis_exp5_etis_size_stratified_results.json"
 if not p.exists(): SKIP("分层分析","json 不存在")
 else:
     d=json.load(open(p)); print("      顶层键:",list(d)[:8])

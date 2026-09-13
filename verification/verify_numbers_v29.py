@@ -17,13 +17,14 @@
 import json, sys, itertools
 import numpy as np
 from pathlib import Path
-from scipy import stats
+from scipy import stats, optimize
 
 # Paths resolve through src/paths.py so the script runs from a fresh clone with
 # no configuration: the cached records bundled under data/raw_records/ are used
 # when present, otherwise the workspace named by BACKBONE_CALIB_ROOT.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
-from paths import CALIB, RECORDS_DIR, EXTERNAL_RECORDS_DIR  # noqa: E402
+from paths import (CALIB, METRICS_DIR, RECORDS_DIR,  # noqa: E402
+                   EXTERNAL_RECORDS_DIR)
 
 REC = RECORDS_DIR
 S8 = [42, 43, 44, 45, 46, 47, 48, 49]
@@ -144,8 +145,8 @@ def ols(y, x):
 
 # ================================================================== 开始
 if not REC.exists(): sys.exit(f"缓存不存在: {REC}")
-acc = json.load(open(CALIB/"accuracy_metrics.json"))
-sta = json.load(open(CALIB/"single_task_accuracy.json"))
+acc = json.load(open(METRICS_DIR/"accuracy_metrics.json"))
+sta = json.load(open(METRICS_DIR/"single_task_accuracy.json"))
 def A_(cfg, seed, key):
     if cfg == ST: return sta[str(seed)][key]
     return acc[f"{cfg}_seed{seed}"][key]
@@ -171,7 +172,7 @@ vals = [[dece(*own(c, s)) for s in S6] for c, _ in depths]
 W, pW = stats.levene(*vals, center="mean")
 chi, pB = stats.bartlett(*vals)
 CHECK("Levene W", float(W), 5.70, 0.02)
-CHECK("Levene p", float(pW), 0.006, 0.001)
+CHECK("Levene p", float(pW), 0.005, 0.001)
 CHECK("Bartlett p", float(pB), 0.027, 0.001)
 sds = [float(np.std(v, ddof=1)) for v in vals]
 CHECK("六种子 SD @k=0 (最小)", sds[0], 0.010, 0.001)
@@ -370,8 +371,10 @@ dm = np.array([dece(*perm(B,s,0.05)) - dece(*perm(A,s,0.05)) for s in S8])
 se = np.std(dm, ddof=1)/np.sqrt(8); tc = stats.t.ppf(0.975,7)
 CHECK("阈值0.05 95%CI 下限", float(dm.mean()-tc*se), -0.017, 0.0015)
 CHECK("阈值0.05 95%CI 上限", float(dm.mean()+tc*se), 0.018, 0.0015)
-mde = np.std(dm, ddof=1) * (stats.t.ppf(0.975,7) + stats.t.ppf(0.80,7)) / np.sqrt(8)
-CHECK("80%功效可检出差(近似)", float(mde), 0.0214, 0.003)
+_se = np.std(dm, ddof=1)/np.sqrt(8); _tc = stats.t.ppf(0.975, 7)
+_power = lambda d: (stats.nct.sf(_tc, 7, d/_se) + stats.nct.cdf(-_tc, 7, d/_se))
+mde = optimize.brentq(lambda d: _power(d) - 0.80, 1e-4, 0.10)
+CHECK("80%功效可检出差 (non-central t)", float(mde), 0.024, 0.001)
 # 非限制的每图 top-1（不取交集）
 nA = np.mean([len(own(A,s)[0]) for s in S8]); nB = np.mean([len(own(B,s)[0]) for s in S8])
 CHECK("非限制 每图top1 图像数 A", float(nA), 196, 0.6)

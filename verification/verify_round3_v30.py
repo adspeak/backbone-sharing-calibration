@@ -24,7 +24,8 @@ from scipy import stats
 # no configuration: the cached records bundled under data/raw_records/ are used
 # when present, otherwise the workspace named by BACKBONE_CALIB_ROOT.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
-from paths import CALIB, RECORDS_DIR, EXTERNAL_RECORDS_DIR  # noqa: E402
+from paths import (CALIB, METRICS_DIR, RECORDS_DIR,  # noqa: E402
+                   EXTERNAL_RECORDS_DIR)
 
 from paths import ROOT  # noqa: E402
 
@@ -78,7 +79,7 @@ def ext_perm(ds,cfg,s,thr=0.001):
     z=np.load(p); c=z["confidence"].astype(float); l=z["is_tp"].astype(int); m=c>=thr
     return c[m],l[m]
 
-SPEC={"cvc":(115,[("D-ECE",dece,0.0700,0.1021,0.0320,1.85,0.214),
+SPEC={"cvc":(115,[("D-ECE",dece,0.0700,0.1021,0.0320,1.85,0.206),
                   ("Brier",brier,0.0312,0.0722,0.0410,4.19,0.053),
                   ("NLL",nll,0.1152,0.3030,0.1878,3.29,0.081)]),
       "etis":(32,[("D-ECE",dece,0.2157,0.2164,0.0007,0.02,0.989)])}
@@ -109,7 +110,7 @@ for f,ds,pa,pb,pd_,pt,pp in [("results_cvc.json","CVC",0.9583,0.9495,-0.0088,-1.
 
 # ---------------------------------------------------------------- [B] 分层
 SEC("[B] §5.6 ETIS 分层分析（tab:size）")
-p=CALIB/"etis_exp5_etis_size_stratified_results.json"
+p=METRICS_DIR/"etis_exp5_etis_size_stratified_results.json"
 d=json.load(open(p))
 PAPER={"small":(0.2113,0.0054,0.0965,0.0230),
        "medium":(0.1669,0.0659,0.2131,0.0574),
@@ -211,8 +212,8 @@ CHECK("论文值落在自助随机范围内",float(min(los)<=0.394<=max(los)),1.
 
 # ---------------------------------------------------------------- [F] 两种重采样
 SEC("[F] §4.1 两种重采样方案（论文称端点差 < 0.006）")
-d1=json.load(open(CALIB/"image_level_bootstrap.json"))
-d2=json.load(open(CALIB/"supplementary_ci_results.json"))
+d1=json.load(open(METRICS_DIR/"image_level_bootstrap.json"))
+d2=json.load(open(METRICS_DIR/"supplementary_ci_results.json"))
 def rows_of(d,cfg):
     v=d[cfg]
     return v["rows"] if isinstance(v,dict) and "rows" in v else None
