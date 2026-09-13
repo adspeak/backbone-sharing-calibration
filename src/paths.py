@@ -52,6 +52,12 @@ DET_YAML = DET_DIR / "dataset.yaml"
 _BUNDLED_RECORDS = REPO / "data" / "raw_records"
 RECORDS_DIR = _BUNDLED_RECORDS if _BUNDLED_RECORDS.is_dir() else CALIB / "raw_records"
 
+# Cached records for the two external validation datasets (CVC-ClinicDB and
+# ETIS-LaribPolypDB), resolved the same way.
+_BUNDLED_EXTERNAL = REPO / "data" / "raw_records_external"
+EXTERNAL_RECORDS_DIR = (_BUNDLED_EXTERNAL if _BUNDLED_EXTERNAL.is_dir()
+                        else CALIB / "raw_records_external")
+
 for _d in (RUNS, RESULTS, CALIB, CACHE):
     _d.mkdir(parents=True, exist_ok=True)
 if RECORDS_DIR is not _BUNDLED_RECORDS:
