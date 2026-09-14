@@ -309,13 +309,21 @@ def areas(label_dir):
             if len(pr)>=5: out.append(float(pr[3])*float(pr[4]))
     return np.array(out)
 found=False
-# the bare pattern matched the CVC directory first and compared its median
-# against the Kvasir-SEG reference; anchor each dataset to its own tree
-for name,pat,pv,q1 in [("Kvasir-SEG","**/kvasir_seg*/**/labels/train",18.47,None),
-                       ("CVC-ClinicDB","**/cvc*/**/labels/train",9.81,None),
-                       ("ETIS","**/etis*/**/labels/train",2.85,1.29)]:
-    hits=[d for d in glob.glob(str(ROOT/pat),recursive=True) if os.path.isdir(d)]
-    if not hits: SKIP(f"{name} 相对面积中位数", f"未找到标签目录 (模式 {pat})"); continue
+# Each dataset is anchored to its own tree: a bare "**/labels/train" matched the
+# CVC directory first and compared its median against the Kvasir-SEG reference.
+# Several spellings are tried because directory naming varies between machines.
+for name,pats,pv,q1 in [
+        ("Kvasir-SEG",  ["**/*kvasir_seg*/**/labels/train",
+                         "**/*[Kk]vasir*[Ss][Ee][Gg]*/**/labels/train"], 18.47, None),
+        ("CVC-ClinicDB",["**/*[Cc][Vv][Cc]*/**/labels/train",
+                         "**/*[Cc]linic[Dd][Bb]*/**/labels/train"], 9.81, None),
+        ("ETIS",        ["**/*[Ee][Tt][Ii][Ss]*/**/labels/train",
+                         "**/*[Ll]arib*/**/labels/train"], 2.85, 1.29)]:
+    hits=[]
+    for pat in pats:
+        hits=[d for d in glob.glob(str(ROOT/pat),recursive=True) if os.path.isdir(d)]
+        if hits: break
+    if not hits: SKIP(f"{name} 相对面积中位数", f"未找到标签目录 (模式 {pats[0]})"); continue
     a=areas(hits[0])
     if len(a)==0: SKIP(f"{name} 相对面积中位数","标签目录为空"); continue
     found=True
