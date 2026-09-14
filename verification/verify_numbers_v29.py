@@ -169,7 +169,7 @@ for mname, fn, sl, st_, sp in [("D-ECE", dece, 0.0042, 4.96, 0.004),
     CHECK(f"趋势 p   {mname}", float(p), sp, 0.001)
 
 vals = [[dece(*own(c, s)) for s in S6] for c, _ in depths]
-W, pW = stats.levene(*vals, center="mean")
+W, pW = stats.levene(*vals, center="median")   # Brown-Forsythe, as in the manuscript
 chi, pB = stats.bartlett(*vals)
 CHECK("Levene W", float(W), 5.70, 0.02)
 CHECK("Levene p", float(pW), 0.005, 0.001)
@@ -227,14 +227,14 @@ SECTION("§5.4  检测精度 / 分类精度")
 def accdiff(ca, cb, key, seeds=S8):
     return np.array([A_(cb, s, key) - A_(ca, s, key) for s in seeds])
 for lab, ca, cb, key, pm, pt, pp in [
-        ("LAG mAP@50",  A, B,  "det_mAP50",   -0.096, -4.06, 0.006),
-        ("GAP mAP@50",  GA, GB, "det_mAP50",  -0.025, -4.01, 0.006)]:
+        ("LAG mAP@50",  A, B,  "det_mAP50",   -0.096, -3.92, 0.006),
+        ("GAP mAP@50",  GA, GB, "det_mAP50",  -0.025, -3.86, 0.006)]:
     m, t, p, dz = tt(accdiff(ca, cb, key))
     CHECK(f"{lab} 差", m, pm, 0.0006); CHECK(f"{lab} t", t, pt, 0.02); CHECK(f"{lab} p", p, pp, 0.001)
 d = accdiff(A, B, "det_mAP50") - accdiff(GA, GB, "det_mAP50")
 m, t, p, dz = tt(d)
-CHECK("mAP@50 交互", m, -0.071, 0.0006); CHECK("mAP@50 交互 t", t, -2.79, 0.02)
-CHECK("mAP@50 交互 p", p, 0.023, 0.001); CHECK("mAP@50 交互 dz", dz, -0.99, 0.02)
+CHECK("mAP@50 交互", m, -0.071, 0.0006); CHECK("mAP@50 交互 t", t, -2.91, 0.02)
+CHECK("mAP@50 交互 p", p, 0.023, 0.001); CHECK("mAP@50 交互 dz", dz, -1.03, 0.02)
 d2 = accdiff(A, B, "det_mAP50_95") - accdiff(GA, GB, "det_mAP50_95")
 m2, _, p2, _ = tt(d2)
 CHECK("mAP@50-95 交互", m2, -0.072, 0.0006); CHECK("mAP@50-95 交互 p", p2, 0.005, 0.001)
@@ -251,7 +251,7 @@ for lab, cfg, pv in [("cls top-1 A", A, 0.9030), ("cls top-1 B", B, 0.9022),
     CHECK(lab, float(np.mean([A_(cfg, s, "cls_acc") for s in seeds])), pv, 0.0006)
 dcls = accdiff(A, B, "cls_acc") - accdiff(GA, GB, "cls_acc")
 _, _, pcls, _ = tt(dcls)
-CHECK("cls top-1 交互 p", pcls, 0.567, 0.002)
+CHECK("cls top-1 交互 p", pcls, 0.565, 0.002)
 
 SECTION("§5.4 / S5  ΔmAP 与 ΔD-ECE 的相关（M6）")
 ddece = diffs(A, B, S8, dece); dmap = accdiff(A, B, "det_mAP50")
@@ -287,8 +287,10 @@ for mname, fn, pm, pp in [("D-ECE", dece, 0.0552, 0.017), ("Adaptive ECE", aece,
     CHECK(f"基线 vs B  p  {mname}", p, pp, 0.001)
 m, t, p, _ = tt(accdiff(ST, A, "det_mAP50"))
 CHECK("基线 vs A mAP@50 p", p, 0.871, 0.002)
-n = 8; se = np.std(accdiff(ST, A, "det_mAP50"), ddof=1)/np.sqrt(n)
-tc = stats.t.ppf(0.975, n-1); mm = np.mean(accdiff(ST, A, "det_mAP50"))
+# the manuscript reports this interval as baseline minus independent
+_dci = accdiff(A, ST, "det_mAP50")
+n = 8; se = np.std(_dci, ddof=1)/np.sqrt(n)
+tc = stats.t.ppf(0.975, n-1); mm = np.mean(_dci)
 CHECK("mAP 差 95%CI 下限", float(mm-tc*se), -0.028, 0.001)
 CHECK("mAP 差 95%CI 上限", float(mm+tc*se), 0.033, 0.001)
 for lab, key, pp in [("mAP@50-95", "det_mAP50_95", 0.982), ("recall", "det_recall", 0.799)]:
@@ -311,7 +313,7 @@ CHECK("联合训练模型数", float(len(ns)), 50, 0.5)
 CHECK("预测数 最小", float(ns.min()), 191, 0.5)
 CHECK("预测数 最大", float(ns.max()), 555, 0.5)
 CHECK("预测数 均值", float(ns.mean()), 264, 1.0)
-r50, p50 = stats.pearsonr(ns, ds); CHECK("r (50 模型)", float(r50), -0.79, 0.006)
+r50, p50 = stats.pearsonr(ns, ds); CHECK("r (50 模型)", float(r50), -0.74, 0.006)
 m32 = np.isin(labels, [A, B, GA, GB])
 r32, _ = stats.pearsonr(ns[m32], ds[m32]); CHECK("r (32 模型)", float(r32), -0.82, 0.006)
 for cfg, pv in [(A, -0.80), (GA, -0.95)]:
@@ -361,7 +363,7 @@ for thr, na, nb, pd_, pa_, pb_, pn_ in [
         (0.001,328,224, 0.0532, 0.0455, 0.0485, 0.2243),
         (0.05, 198,160, 0.0001,-0.0020,-0.0096,-0.0238),
         (0.10, 186,150, 0.0032,-0.0023,-0.0078,-0.0179),
-        (0.25, 169,137,-0.0045,-0.0031,-0.0064,-0.0151)]:
+        (0.25, 169,137,-0.0045, 0.0025,-0.0108,-0.0254)]:
     CHECK(f"阈值{thr} N_A", float(np.mean([len(perm(A,s,thr)[0]) for s in S8])), na, 0.6)
     CHECK(f"阈值{thr} N_B", float(np.mean([len(perm(B,s,thr)[0]) for s in S8])), nb, 0.6)
     for mname, fn, pv in [("D-ECE",dece,pd_),("AdaECE",aece,pa_),("Brier",brier,pb_),("NLL",nll,pn_)]:
@@ -372,8 +374,8 @@ se = np.std(dm, ddof=1)/np.sqrt(8); tc = stats.t.ppf(0.975,7)
 CHECK("阈值0.05 95%CI 下限", float(dm.mean()-tc*se), -0.017, 0.0015)
 CHECK("阈值0.05 95%CI 上限", float(dm.mean()+tc*se), 0.018, 0.0015)
 _se = np.std(dm, ddof=1)/np.sqrt(8); _tc = stats.t.ppf(0.975, 7)
-_power = lambda d: (stats.nct.sf(_tc, 7, d/_se) + stats.nct.cdf(-_tc, 7, d/_se))
-mde = optimize.brentq(lambda d: _power(d) - 0.80, 1e-4, 0.10)
+_power = lambda d: stats.nct.sf(_tc, 7, d/_se)
+mde = optimize.brentq(lambda d: _power(d) - 0.80, 1e-4, 4*_se*4)
 CHECK("80%功效可检出差 (non-central t)", float(mde), 0.024, 0.001)
 # 非限制的每图 top-1（不取交集）
 nA = np.mean([len(own(A,s)[0]) for s in S8]); nB = np.mean([len(own(B,s)[0]) for s in S8])

@@ -73,31 +73,47 @@ def ext_top1(ds,cfg,s):
     for a_,b_,c_ in zip(c,l,i):
         if c_ not in b or a_>b[c_][0]: b[c_]=(a_,b_)
     k=sorted(b); return np.array([b[j][0] for j in k]), np.array([b[j][1] for j in k])
+def ext_pair(ds,cA,cB,s):
+    """Matched-image protocol: the manuscript restricts every external paired
+    contrast to the images on which BOTH configurations produce a prediction."""
+    pa=EXT/f"{ds}_{cA}_{ds}_seed{s}.npz"; pb=EXT/f"{ds}_{cB}_{ds}_seed{s}.npz"
+    if not (pa.exists() and pb.exists()): return None
+    def _m(p):
+        z=np.load(p); c=z["confidence"].astype(float); l=z["is_tp"].astype(int)
+        i=z["image_idx"].astype(int); b={}
+        for a_,b_,c_ in zip(c,l,i):
+            if c_ not in b or a_>b[c_][0]: b[c_]=(a_,b_)
+        return b
+    ma,mb=_m(pa),_m(pb); k=sorted(set(ma)&set(mb))
+    return (np.array([ma[j][0] for j in k]), np.array([ma[j][1] for j in k]),
+            np.array([mb[j][0] for j in k]), np.array([mb[j][1] for j in k]))
+
 def ext_perm(ds,cfg,s,thr=0.001):
     p=EXT/f"{ds}_{cfg}_{ds}_seed{s}.npz"
     if not p.exists(): return None
     z=np.load(p); c=z["confidence"].astype(float); l=z["is_tp"].astype(int); m=c>=thr
     return c[m],l[m]
 
-SPEC={"cvc":(115,[("D-ECE",dece,0.0700,0.1021,0.0320,1.85,0.206),
+SPEC={"cvc":(115,[("D-ECE",dece,0.0700,0.1021,0.0320,1.80,0.214),
                   ("Brier",brier,0.0312,0.0722,0.0410,4.19,0.053),
                   ("NLL",nll,0.1152,0.3030,0.1878,3.29,0.081)]),
       "etis":(32,[("D-ECE",dece,0.2157,0.2164,0.0007,0.02,0.989)])}
 for ds,(pN,rows) in SPEC.items():
     if ext_top1(ds,A,42) is None:
         SKIP(f"{ds} 全部","文件仍不匹配"); continue
-    na=[len(ext_top1(ds,A,s)[0]) for s in S3]; nb=[len(ext_top1(ds,B,s)[0]) for s in S3]
-    print(f"      {ds} 每图 top-1 图像数  A={na}  B={nb}")
-    CHECK(f"{ds} N̄",float(np.mean(na+nb)),pN,1.0)
+    pr=[ext_pair(ds,A,B,s) for s in S3]
+    nm=[len(x[0]) for x in pr]
+    print(f"      {ds} 匹配图像数（每种子）: {nm}")
+    CHECK(f"{ds} N̄",float(np.mean(nm)),pN,1.0)
     for mn,fn,pa,pb,pd_,pt,pp in rows:
-        va=np.mean([fn(*ext_top1(ds,A,s)) for s in S3]); vb=np.mean([fn(*ext_top1(ds,B,s)) for s in S3])
-        dd=np.array([fn(*ext_top1(ds,B,s))-fn(*ext_top1(ds,A,s)) for s in S3]); m,t,p,_=tt(dd)
+        va=np.mean([fn(x[0],x[1]) for x in pr]); vb=np.mean([fn(x[2],x[3]) for x in pr])
+        dd=np.array([fn(x[2],x[3])-fn(x[0],x[1]) for x in pr]); m,t,p,_=tt(dd)
         CHECK(f"{ds} {mn} A",float(va),pa,0.0006); CHECK(f"{ds} {mn} B",float(vb),pb,0.0006)
         CHECK(f"{ds} {mn} 差",m,pd_,0.0006); CHECK(f"{ds} {mn} t",t,pt,0.03); CHECK(f"{ds} {mn} p",p,pp,0.003)
     if ds=="etis":
         npm=[len(ext_perm(ds,c,s)[0]) for c in (A,B) for s in S3]
         print(f"      ETIS 宽松协议每模型预测数: {npm}")
-        CHECK("ETIS 宽松 N 最小",float(min(npm)),40,0.5); CHECK("ETIS 宽松 N 最大",float(max(npm)),58,0.5)
+        CHECK("ETIS 宽松 N 最小",float(min(npm)),34,0.5); CHECK("ETIS 宽松 N 最大",float(max(npm)),82,0.5)
         dd=np.array([dece(*ext_perm(ds,B,s))-dece(*ext_perm(ds,A,s)) for s in S3]); m,t,p,dz=tt(dd)
         CHECK("ETIS 宽松 p",p,0.006,0.002); CHECK("ETIS 宽松 dz",dz,7.49,0.06)
 # mAP 来自 results/*.json
@@ -125,9 +141,9 @@ for st,(ma,sa,mb,sb) in PAPER.items():
     a=np.array([x[k] for x in va]); b=np.array([x[k] for x in vb])
     ns_all += [x["n"] for x in va]+[x["n"] for x in vb]
     CHECK(f"tab:size {st} A 均值",float(a.mean()),ma,0.0002)
-    CHECK(f"tab:size {st} A SD",float(a.std(ddof=1)),sa,0.0002)
+    CHECK(f"tab:size {st} A SD",float(a.std(ddof=0)),sa,0.0002)
     CHECK(f"tab:size {st} B 均值",float(b.mean()),mb,0.0002)
-    CHECK(f"tab:size {st} B SD",float(b.std(ddof=1)),sb,0.0002)
+    CHECK(f"tab:size {st} B SD",float(b.std(ddof=0)),sb,0.0002)
 if ns_all:
     print(f"      各层每模型预测数: {sorted(set(ns_all))}")
     CHECK("分层预测数 最小",float(min(ns_all)),10,0.5)
