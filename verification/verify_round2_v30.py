@@ -309,7 +309,9 @@ def areas(label_dir):
             if len(pr)>=5: out.append(float(pr[3])*float(pr[4]))
     return np.array(out)
 found=False
-for name,pat,pv,q1 in [("Kvasir-SEG","**/labels/train",18.47,None),
+# the bare pattern matched the CVC directory first and compared its median
+# against the Kvasir-SEG reference; anchor each dataset to its own tree
+for name,pat,pv,q1 in [("Kvasir-SEG","**/kvasir_seg*/**/labels/train",18.47,None),
                        ("CVC-ClinicDB","**/cvc*/**/labels/train",9.81,None),
                        ("ETIS","**/etis*/**/labels/train",2.85,1.29)]:
     hits=[d for d in glob.glob(str(ROOT/pat),recursive=True) if os.path.isdir(d)]
