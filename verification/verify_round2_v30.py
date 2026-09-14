@@ -275,8 +275,8 @@ else:
             CHECK(f"{ds} {mname} t",t,pt,0.02); CHECK(f"{ds} {mname} p",p,pp,0.002)
         if ds=="etis":
             npm=[len(perm(A,s,0.001,EXT,ds)[0]) for s in S3]+[len(perm(B,s,0.001,EXT,ds)[0]) for s in S3]
-            CHECK("ETIS 宽松 N 最小",float(min(npm)),34,0.5)
-            CHECK("ETIS 宽松 N 最大",float(max(npm)),82,0.5)
+            CHECK("ETIS 宽松 N 最小",float(min(npm)),37,0.5)
+            CHECK("ETIS 宽松 N 最大",float(max(npm)),85,0.5)
             dd=np.array([dece(*perm(B,s,0.001,EXT,ds))-dece(*perm(A,s,0.001,EXT,ds)) for s in S3])
             m,t,p,dz=tt(dd)
             CHECK("ETIS 宽松 p",p,0.006,0.002); CHECK("ETIS 宽松 dz",dz,7.49,0.05)

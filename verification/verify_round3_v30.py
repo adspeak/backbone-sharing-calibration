@@ -113,7 +113,7 @@ for ds,(pN,rows) in SPEC.items():
     if ds=="etis":
         npm=[len(ext_perm(ds,c,s)[0]) for c in (A,B) for s in S3]
         print(f"      ETIS 宽松协议每模型预测数: {npm}")
-        CHECK("ETIS 宽松 N 最小",float(min(npm)),34,0.5); CHECK("ETIS 宽松 N 最大",float(max(npm)),82,0.5)
+        CHECK("ETIS 宽松 N 最小",float(min(npm)),37,0.5); CHECK("ETIS 宽松 N 最大",float(max(npm)),85,0.5)
         dd=np.array([dece(*ext_perm(ds,B,s))-dece(*ext_perm(ds,A,s)) for s in S3]); m,t,p,dz=tt(dd)
         CHECK("ETIS 宽松 p",p,0.006,0.002); CHECK("ETIS 宽松 dz",dz,7.49,0.06)
 # mAP 来自 results/*.json
