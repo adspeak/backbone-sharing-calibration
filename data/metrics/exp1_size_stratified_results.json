@@ -1,0 +1,658 @@
+{
+  "A_independent": [
+    {
+      "run": "A_independent_seed42",
+      "share_until": 0,
+      "stratified": {
+        "small": {
+          "n": 173,
+          "dece_point_estimate": 0.07803274471463495,
+          "dece_bootstrap_mean": 0.08944913053493396,
+          "ci_95_low": 0.04898579911710065,
+          "ci_95_high": 0.13289490679266855
+        },
+        "medium": {
+          "n": 147,
+          "dece_point_estimate": 0.10794795779067842,
+          "dece_bootstrap_mean": 0.1092368237590449,
+          "ci_95_low": 0.06012843924451407,
+          "ci_95_high": 0.15819276360651163
+        },
+        "large": {
+          "n": 241,
+          "dece_point_estimate": 0.10035333015735712,
+          "dece_bootstrap_mean": 0.1049537884844037,
+          "ci_95_low": 0.07152605256640798,
+          "ci_95_high": 0.14325041389421278
+        }
+      }
+    },
+    {
+      "run": "A_independent_seed43",
+      "share_until": 0,
+      "stratified": {
+        "small": {
+          "n": 93,
+          "dece_point_estimate": 0.1521486838258082,
+          "dece_bootstrap_mean": 0.1627253837186658,
+          "ci_95_low": 0.09360971209290811,
+          "ci_95_high": 0.24081734037364744
+        },
+        "medium": {
+          "n": 92,
+          "dece_point_estimate": 0.10518702127687311,
+          "dece_bootstrap_mean": 0.11838830063032346,
+          "ci_95_low": 0.06113771873902095,
+          "ci_95_high": 0.1889863090507076
+        },
+        "large": {
+          "n": 116,
+          "dece_point_estimate": 0.1967816106204329,
+          "dece_bootstrap_mean": 0.20430490806533708,
+          "ci_95_low": 0.14106430950991564,
+          "ci_95_high": 0.2782896090110218
+        }
+      }
+    },
+    {
+      "run": "A_independent_seed44",
+      "share_until": 0,
+      "stratified": {
+        "small": {
+          "n": 91,
+          "dece_point_estimate": 0.159578597930434,
+          "dece_bootstrap_mean": 0.1730222809537388,
+          "ci_95_low": 0.10112894651013721,
+          "ci_95_high": 0.2495288787511367
+        },
+        "medium": {
+          "n": 84,
+          "dece_point_estimate": 0.12960783638326187,
+          "dece_bootstrap_mean": 0.13906428580441782,
+          "ci_95_low": 0.07305681096861791,
+          "ci_95_high": 0.2148459416638486
+        },
+        "large": {
+          "n": 119,
+          "dece_point_estimate": 0.16773989056276173,
+          "dece_bootstrap_mean": 0.17759962672526663,
+          "ci_95_low": 0.11401209004361285,
+          "ci_95_high": 0.24374645611446374
+        }
+      }
+    },
+    {
+      "run": "A_independent_seed45",
+      "share_until": 0,
+      "stratified": {
+        "small": {
+          "n": 84,
+          "dece_point_estimate": 0.15618430698911345,
+          "dece_bootstrap_mean": 0.16823385746543398,
+          "ci_95_low": 0.10122971241826667,
+          "ci_95_high": 0.24869924615548888
+        },
+        "medium": {
+          "n": 82,
+          "dece_point_estimate": 0.17860531295854143,
+          "dece_bootstrap_mean": 0.18752491746916541,
+          "ci_95_low": 0.11087381048639103,
+          "ci_95_high": 0.2728284590421514
+        },
+        "large": {
+          "n": 113,
+          "dece_point_estimate": 0.22552767010257307,
+          "dece_bootstrap_mean": 0.23546398776394947,
+          "ci_95_low": 0.1601787593168571,
+          "ci_95_high": 0.3093089431986332
+        }
+      }
+    },
+    {
+      "run": "A_independent_seed46",
+      "share_until": 0,
+      "stratified": {
+        "small": {
+          "n": 85,
+          "dece_point_estimate": 0.20663889699122484,
+          "dece_bootstrap_mean": 0.20494889367401928,
+          "ci_95_low": 0.1274755773236906,
+          "ci_95_high": 0.2939980215428274
+        },
+        "medium": {
+          "n": 84,
+          "dece_point_estimate": 0.16940183822242985,
+          "dece_bootstrap_mean": 0.17358885502468632,
+          "ci_95_low": 0.10189196504804943,
+          "ci_95_high": 0.25304144431173053
+        },
+        "large": {
+          "n": 90,
+          "dece_point_estimate": 0.2673358336091041,
+          "dece_bootstrap_mean": 0.26925276878816595,
+          "ci_95_low": 0.18362190243603738,
+          "ci_95_high": 0.36159455685145486
+        }
+      }
+    },
+    {
+      "run": "A_independent_seed47",
+      "share_until": 0,
+      "stratified": {
+        "small": {
+          "n": 79,
+          "dece_point_estimate": 0.1338471223989242,
+          "dece_bootstrap_mean": 0.15309931225273346,
+          "ci_95_low": 0.08463825594462142,
+          "ci_95_high": 0.23160682625039272
+        },
+        "medium": {
+          "n": 85,
+          "dece_point_estimate": 0.11511304308386411,
+          "dece_bootstrap_mean": 0.12151220412515926,
+          "ci_95_low": 0.060065391361405256,
+          "ci_95_high": 0.1852420840526397
+        },
+        "large": {
+          "n": 98,
+          "dece_point_estimate": 0.2337930216549002,
+          "dece_bootstrap_mean": 0.25018576295385897,
+          "ci_95_low": 0.17619328530165554,
+          "ci_95_high": 0.3273507482653164
+        }
+      }
+    }
+  ],
+  "C_shallow": [
+    {
+      "run": "C_shallow_seed42",
+      "share_until": 5,
+      "stratified": {
+        "small": {
+          "n": 71,
+          "dece_point_estimate": 0.10133120283799271,
+          "dece_bootstrap_mean": 0.11247367738294053,
+          "ci_95_low": 0.054617761192526836,
+          "ci_95_high": 0.1828506884066319
+        },
+        "medium": {
+          "n": 83,
+          "dece_point_estimate": 0.16571537187569832,
+          "dece_bootstrap_mean": 0.17230101333925057,
+          "ci_95_low": 0.09876880771305183,
+          "ci_95_high": 0.25309273426088574
+        },
+        "large": {
+          "n": 94,
+          "dece_point_estimate": 0.16937845044749533,
+          "dece_bootstrap_mean": 0.18263980968633142,
+          "ci_95_low": 0.1130814901844752,
+          "ci_95_high": 0.26106614822585583
+        }
+      }
+    },
+    {
+      "run": "C_shallow_seed43",
+      "share_until": 5,
+      "stratified": {
+        "small": {
+          "n": 71,
+          "dece_point_estimate": 0.08843231893761057,
+          "dece_bootstrap_mean": 0.10904370077772879,
+          "ci_95_low": 0.05425182916724096,
+          "ci_95_high": 0.17107756226618684
+        },
+        "medium": {
+          "n": 83,
+          "dece_point_estimate": 0.18489074832703695,
+          "dece_bootstrap_mean": 0.18570428815930354,
+          "ci_95_low": 0.10926605710943499,
+          "ci_95_high": 0.2658713926190541
+        },
+        "large": {
+          "n": 92,
+          "dece_point_estimate": 0.29064334540263465,
+          "dece_bootstrap_mean": 0.2945184597347954,
+          "ci_95_low": 0.20890731454061964,
+          "ci_95_high": 0.3844832730079044
+        }
+      }
+    },
+    {
+      "run": "C_shallow_seed44",
+      "share_until": 5,
+      "stratified": {
+        "small": {
+          "n": 71,
+          "dece_point_estimate": 0.10397998054682367,
+          "dece_bootstrap_mean": 0.11751850899369423,
+          "ci_95_low": 0.06260069662747697,
+          "ci_95_high": 0.18770417694955846
+        },
+        "medium": {
+          "n": 88,
+          "dece_point_estimate": 0.1474859774620695,
+          "dece_bootstrap_mean": 0.1566287032025919,
+          "ci_95_low": 0.08829670717042809,
+          "ci_95_high": 0.23224884057953296
+        },
+        "large": {
+          "n": 76,
+          "dece_point_estimate": 0.18413083054321375,
+          "dece_bootstrap_mean": 0.20325971741467333,
+          "ci_95_low": 0.1301726871451185,
+          "ci_95_high": 0.2872072995873933
+        }
+      }
+    },
+    {
+      "run": "C_shallow_seed45",
+      "share_until": 5,
+      "stratified": {
+        "small": {
+          "n": 82,
+          "dece_point_estimate": 0.10394174355740952,
+          "dece_bootstrap_mean": 0.10985128078162643,
+          "ci_95_low": 0.06305390587672816,
+          "ci_95_high": 0.17483413157187452
+        },
+        "medium": {
+          "n": 78,
+          "dece_point_estimate": 0.13197847178731212,
+          "dece_bootstrap_mean": 0.1393132584749509,
+          "ci_95_low": 0.07171397854406872,
+          "ci_95_high": 0.21317658261328826
+        },
+        "large": {
+          "n": 93,
+          "dece_point_estimate": 0.19040753868638827,
+          "dece_bootstrap_mean": 0.2119491309107767,
+          "ci_95_low": 0.13572860240281598,
+          "ci_95_high": 0.29250424143661724
+        }
+      }
+    },
+    {
+      "run": "C_shallow_seed46",
+      "share_until": 5,
+      "stratified": {
+        "small": {
+          "n": 75,
+          "dece_point_estimate": 0.11560804871221386,
+          "dece_bootstrap_mean": 0.13603648058253962,
+          "ci_95_low": 0.07274091661011335,
+          "ci_95_high": 0.2017801569813164
+        },
+        "medium": {
+          "n": 76,
+          "dece_point_estimate": 0.1907773421047942,
+          "dece_bootstrap_mean": 0.19405619987299494,
+          "ci_95_low": 0.12461641853526668,
+          "ci_95_high": 0.27781264771413244
+        },
+        "large": {
+          "n": 91,
+          "dece_point_estimate": 0.2315029826956791,
+          "dece_bootstrap_mean": 0.23929832556788108,
+          "ci_95_low": 0.15994067009628604,
+          "ci_95_high": 0.32417080609443216
+        }
+      }
+    },
+    {
+      "run": "C_shallow_seed47",
+      "share_until": 5,
+      "stratified": {
+        "small": {
+          "n": 71,
+          "dece_point_estimate": 0.18175624615289798,
+          "dece_bootstrap_mean": 0.19287078346446498,
+          "ci_95_low": 0.11220897490750598,
+          "ci_95_high": 0.2758416678698677
+        },
+        "medium": {
+          "n": 78,
+          "dece_point_estimate": 0.21605797145420158,
+          "dece_bootstrap_mean": 0.21868401897130293,
+          "ci_95_low": 0.13351187733560202,
+          "ci_95_high": 0.31116480651671263
+        },
+        "large": {
+          "n": 79,
+          "dece_point_estimate": 0.2997175113451254,
+          "dece_bootstrap_mean": 0.30508012180432204,
+          "ci_95_low": 0.21226449482871626,
+          "ci_95_high": 0.40329806373176125
+        }
+      }
+    }
+  ],
+  "C_deep": [
+    {
+      "run": "C_deep_seed42",
+      "share_until": 9,
+      "stratified": {
+        "small": {
+          "n": 72,
+          "dece_point_estimate": 0.2295135613013473,
+          "dece_bootstrap_mean": 0.23593606298231884,
+          "ci_95_low": 0.14651460071416095,
+          "ci_95_high": 0.3336025302280581
+        },
+        "medium": {
+          "n": 75,
+          "dece_point_estimate": 0.1427459991723299,
+          "dece_bootstrap_mean": 0.158927288907875,
+          "ci_95_low": 0.09198690973501655,
+          "ci_95_high": 0.23359796551226947
+        },
+        "large": {
+          "n": 87,
+          "dece_point_estimate": 0.2474646535755574,
+          "dece_bootstrap_mean": 0.26201769775734285,
+          "ci_95_low": 0.17293919267339616,
+          "ci_95_high": 0.3569726515864089
+        }
+      }
+    },
+    {
+      "run": "C_deep_seed43",
+      "share_until": 9,
+      "stratified": {
+        "small": {
+          "n": 68,
+          "dece_point_estimate": 0.16733671785058343,
+          "dece_bootstrap_mean": 0.18698953155657577,
+          "ci_95_low": 0.10670144036707556,
+          "ci_95_high": 0.2779422624823757
+        },
+        "medium": {
+          "n": 77,
+          "dece_point_estimate": 0.21428095907359931,
+          "dece_bootstrap_mean": 0.21473032589804672,
+          "ci_95_low": 0.13647327094596606,
+          "ci_95_high": 0.3005432385007863
+        },
+        "large": {
+          "n": 85,
+          "dece_point_estimate": 0.28277511986739495,
+          "dece_bootstrap_mean": 0.29606511898357285,
+          "ci_95_low": 0.20721736800781557,
+          "ci_95_high": 0.39265192106349034
+        }
+      }
+    },
+    {
+      "run": "C_deep_seed44",
+      "share_until": 9,
+      "stratified": {
+        "small": {
+          "n": 73,
+          "dece_point_estimate": 0.21017600256592445,
+          "dece_bootstrap_mean": 0.21580706669536595,
+          "ci_95_low": 0.13095843355699238,
+          "ci_95_high": 0.3076574883458829
+        },
+        "medium": {
+          "n": 76,
+          "dece_point_estimate": 0.15441944256522935,
+          "dece_bootstrap_mean": 0.1570322166728606,
+          "ci_95_low": 0.088225946712689,
+          "ci_95_high": 0.23567437793489687
+        },
+        "large": {
+          "n": 84,
+          "dece_point_estimate": 0.3189916832017757,
+          "dece_bootstrap_mean": 0.33317005566234553,
+          "ci_95_low": 0.23531978313486826,
+          "ci_95_high": 0.4328244805714695
+        }
+      }
+    },
+    {
+      "run": "C_deep_seed45",
+      "share_until": 9,
+      "stratified": {
+        "small": {
+          "n": 71,
+          "dece_point_estimate": 0.16830452675865568,
+          "dece_bootstrap_mean": 0.1787747827985547,
+          "ci_95_low": 0.09834444080225298,
+          "ci_95_high": 0.26563890083442104
+        },
+        "medium": {
+          "n": 80,
+          "dece_point_estimate": 0.1809420144651085,
+          "dece_bootstrap_mean": 0.19684141581942532,
+          "ci_95_low": 0.1214087019444196,
+          "ci_95_high": 0.2789869556070334
+        },
+        "large": {
+          "n": 85,
+          "dece_point_estimate": 0.29207133221275666,
+          "dece_bootstrap_mean": 0.31036819521671655,
+          "ci_95_low": 0.21614648540062584,
+          "ci_95_high": 0.4088277307573213
+        }
+      }
+    },
+    {
+      "run": "C_deep_seed46",
+      "share_until": 9,
+      "stratified": {
+        "small": {
+          "n": 64,
+          "dece_point_estimate": 0.18563930649543178,
+          "dece_bootstrap_mean": 0.20171171220435644,
+          "ci_95_low": 0.11114557848350154,
+          "ci_95_high": 0.2973695949967805
+        },
+        "medium": {
+          "n": 76,
+          "dece_point_estimate": 0.1425179093340902,
+          "dece_bootstrap_mean": 0.15712713774956003,
+          "ci_95_low": 0.08621705715317816,
+          "ci_95_high": 0.23174870552488994
+        },
+        "large": {
+          "n": 70,
+          "dece_point_estimate": 0.331547185060169,
+          "dece_bootstrap_mean": 0.3480178845331722,
+          "ci_95_low": 0.24809848066327894,
+          "ci_95_high": 0.45443916906157805
+        }
+      }
+    },
+    {
+      "run": "C_deep_seed47",
+      "share_until": 9,
+      "stratified": {
+        "small": {
+          "n": 61,
+          "dece_point_estimate": 0.22385938050316984,
+          "dece_bootstrap_mean": 0.23435474121658187,
+          "ci_95_low": 0.13741449201665623,
+          "ci_95_high": 0.3413702010095489
+        },
+        "medium": {
+          "n": 72,
+          "dece_point_estimate": 0.20635484748830402,
+          "dece_bootstrap_mean": 0.21926026610759436,
+          "ci_95_low": 0.1422659834053775,
+          "ci_95_high": 0.3082069727103873
+        },
+        "large": {
+          "n": 90,
+          "dece_point_estimate": 0.23653518185019495,
+          "dece_bootstrap_mean": 0.2520840309895808,
+          "ci_95_low": 0.16859312064677295,
+          "ci_95_high": 0.33580485617036976
+        }
+      }
+    }
+  ],
+  "B_shared": [
+    {
+      "run": "B_shared_seed42",
+      "share_until": 11,
+      "stratified": {
+        "small": {
+          "n": 67,
+          "dece_point_estimate": 0.21293485270284898,
+          "dece_bootstrap_mean": 0.22508812038536155,
+          "ci_95_low": 0.1301624784532782,
+          "ci_95_high": 0.3250109723082799
+        },
+        "medium": {
+          "n": 76,
+          "dece_point_estimate": 0.2257949397654125,
+          "dece_bootstrap_mean": 0.22768880509500894,
+          "ci_95_low": 0.14779713420506785,
+          "ci_95_high": 0.3169347229880881
+        },
+        "large": {
+          "n": 63,
+          "dece_point_estimate": 0.3425734556974873,
+          "dece_bootstrap_mean": 0.360499603714271,
+          "ci_95_low": 0.25354047998839563,
+          "ci_95_high": 0.4702980677635105
+        }
+      }
+    },
+    {
+      "run": "B_shared_seed43",
+      "share_until": 11,
+      "stratified": {
+        "small": {
+          "n": 67,
+          "dece_point_estimate": 0.15568690046445646,
+          "dece_bootstrap_mean": 0.1707459693640651,
+          "ci_95_low": 0.09194342058304866,
+          "ci_95_high": 0.25524230988213176
+        },
+        "medium": {
+          "n": 73,
+          "dece_point_estimate": 0.2037969191801058,
+          "dece_bootstrap_mean": 0.21506432727753177,
+          "ci_95_low": 0.13872284744726648,
+          "ci_95_high": 0.29936982200912365
+        },
+        "large": {
+          "n": 69,
+          "dece_point_estimate": 0.3035460346364888,
+          "dece_bootstrap_mean": 0.32737464255120174,
+          "ci_95_low": 0.21790510595403273,
+          "ci_95_high": 0.4296976341176745
+        }
+      }
+    },
+    {
+      "run": "B_shared_seed44",
+      "share_until": 11,
+      "stratified": {
+        "small": {
+          "n": 65,
+          "dece_point_estimate": 0.19569248591478056,
+          "dece_bootstrap_mean": 0.21027706119355818,
+          "ci_95_low": 0.1249846551435677,
+          "ci_95_high": 0.2991137955901034
+        },
+        "medium": {
+          "n": 76,
+          "dece_point_estimate": 0.2318886349614906,
+          "dece_bootstrap_mean": 0.24507414706266256,
+          "ci_95_low": 0.1630228795795503,
+          "ci_95_high": 0.3248494853138446
+        },
+        "large": {
+          "n": 71,
+          "dece_point_estimate": 0.3193481694382262,
+          "dece_bootstrap_mean": 0.3342482953003861,
+          "ci_95_low": 0.23941491205580565,
+          "ci_95_high": 0.4411307912309241
+        }
+      }
+    },
+    {
+      "run": "B_shared_seed45",
+      "share_until": 11,
+      "stratified": {
+        "small": {
+          "n": 57,
+          "dece_point_estimate": 0.1926142629889543,
+          "dece_bootstrap_mean": 0.20864060854773328,
+          "ci_95_low": 0.11270583206573252,
+          "ci_95_high": 0.3140405887044484
+        },
+        "medium": {
+          "n": 65,
+          "dece_point_estimate": 0.20066272798352522,
+          "dece_bootstrap_mean": 0.21870851585346346,
+          "ci_95_low": 0.13253313800436448,
+          "ci_95_high": 0.3185981539482824
+        },
+        "large": {
+          "n": 72,
+          "dece_point_estimate": 0.2483934651698089,
+          "dece_bootstrap_mean": 0.271784152287812,
+          "ci_95_low": 0.1786440911733128,
+          "ci_95_high": 0.3715617986967118
+        }
+      }
+    },
+    {
+      "run": "B_shared_seed46",
+      "share_until": 11,
+      "stratified": {
+        "small": {
+          "n": 63,
+          "dece_point_estimate": 0.2146125587206038,
+          "dece_bootstrap_mean": 0.2137576641060619,
+          "ci_95_low": 0.12817536005879654,
+          "ci_95_high": 0.30761044479939825
+        },
+        "medium": {
+          "n": 71,
+          "dece_point_estimate": 0.15807749142109506,
+          "dece_bootstrap_mean": 0.16259597420774752,
+          "ci_95_low": 0.09324701345356796,
+          "ci_95_high": 0.24409752996969625
+        },
+        "large": {
+          "n": 83,
+          "dece_point_estimate": 0.3028640407081468,
+          "dece_bootstrap_mean": 0.31185443277981734,
+          "ci_95_low": 0.21313382858632787,
+          "ci_95_high": 0.4077727530713695
+        }
+      }
+    },
+    {
+      "run": "B_shared_seed47",
+      "share_until": 11,
+      "stratified": {
+        "small": {
+          "n": 65,
+          "dece_point_estimate": 0.1322103482312881,
+          "dece_bootstrap_mean": 0.14469889366291286,
+          "ci_95_low": 0.07749749335782745,
+          "ci_95_high": 0.22267117240582587
+        },
+        "medium": {
+          "n": 60,
+          "dece_point_estimate": 0.18194760605692867,
+          "dece_bootstrap_mean": 0.1968098241698385,
+          "ci_95_low": 0.11179128156509247,
+          "ci_95_high": 0.28978298145123216
+        },
+        "large": {
+          "n": 67,
+          "dece_point_estimate": 0.24458611611999684,
+          "dece_bootstrap_mean": 0.2685138220951785,
+          "ci_95_low": 0.1781428952797823,
+          "ci_95_high": 0.37066107175774254
+        }
+      }
+    }
+  ]
+}

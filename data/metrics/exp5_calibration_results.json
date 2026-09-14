@@ -1,0 +1,866 @@
+{
+  "CVC-ClinicDB": {
+    "A_independent_cvc": [
+      {
+        "run": "A_independent_cvc_seed42",
+        "share_until": 0,
+        "n_predictions": 681,
+        "dece_point_estimate": 0.01774390993117411,
+        "dece_bootstrap_mean": 0.019011525725948396,
+        "dece_ci_95_low": 0.01247782633253873,
+        "dece_ci_95_high": 0.02737178996919635,
+        "bin_stats": [
+          {
+            "bin": 0,
+            "n": 560,
+            "mean_conf": 0.002785286633297801,
+            "accuracy": 0.007142857142857143
+          },
+          {
+            "bin": 1,
+            "n": 5,
+            "mean_conf": 0.1480925977230072,
+            "accuracy": 0.2
+          },
+          {
+            "bin": 2,
+            "n": 1,
+            "mean_conf": 0.20199647545814514,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 3,
+            "n": 1,
+            "mean_conf": 0.3827635645866394,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 4,
+            "n": 6,
+            "mean_conf": 0.43835726380348206,
+            "accuracy": 0.8333333333333334
+          },
+          {
+            "bin": 5,
+            "n": 2,
+            "mean_conf": 0.5530520081520081,
+            "accuracy": 0.5
+          },
+          {
+            "bin": 6,
+            "n": 4,
+            "mean_conf": 0.6539821028709412,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 7,
+            "n": 3,
+            "mean_conf": 0.7614908814430237,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 8,
+            "n": 7,
+            "mean_conf": 0.8667964935302734,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 9,
+            "n": 92,
+            "mean_conf": 0.9732543230056763,
+            "accuracy": 1.0
+          }
+        ]
+      },
+      {
+        "run": "A_independent_cvc_seed43",
+        "share_until": 0,
+        "n_predictions": 136,
+        "dece_point_estimate": 0.052607964121681804,
+        "dece_bootstrap_mean": 0.05993259819063464,
+        "dece_ci_95_low": 0.036744655593279545,
+        "dece_ci_95_high": 0.0876908726450518,
+        "bin_stats": [
+          {
+            "bin": 0,
+            "n": 17,
+            "mean_conf": 0.01451662927865982,
+            "accuracy": 0.11764705882352941
+          },
+          {
+            "bin": 1,
+            "n": 1,
+            "mean_conf": 0.15062235295772552,
+            "accuracy": 0.0
+          },
+          {
+            "bin": 2,
+            "n": 1,
+            "mean_conf": 0.28403982520103455,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 3,
+            "n": 3,
+            "mean_conf": 0.3619326651096344,
+            "accuracy": 0.3333333333333333
+          },
+          {
+            "bin": 4,
+            "n": 2,
+            "mean_conf": 0.4531579911708832,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 5,
+            "n": 3,
+            "mean_conf": 0.5513747334480286,
+            "accuracy": 0.6666666666666666
+          },
+          {
+            "bin": 6,
+            "n": 3,
+            "mean_conf": 0.6824209094047546,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 7,
+            "n": 1,
+            "mean_conf": 0.734207272529602,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 8,
+            "n": 2,
+            "mean_conf": 0.8576198220252991,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 9,
+            "n": 103,
+            "mean_conf": 0.9853763580322266,
+            "accuracy": 1.0
+          }
+        ]
+      },
+      {
+        "run": "A_independent_cvc_seed44",
+        "share_until": 0,
+        "n_predictions": 133,
+        "dece_point_estimate": 0.0522108843928217,
+        "dece_bootstrap_mean": 0.055112348576190115,
+        "dece_ci_95_low": 0.03301636195401102,
+        "dece_ci_95_high": 0.08448736310378066,
+        "bin_stats": [
+          {
+            "bin": 0,
+            "n": 15,
+            "mean_conf": 0.020844990387558937,
+            "accuracy": 0.06666666666666667
+          },
+          {
+            "bin": 1,
+            "n": 4,
+            "mean_conf": 0.12405077368021011,
+            "accuracy": 0.5
+          },
+          {
+            "bin": 2,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 3,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 4,
+            "n": 4,
+            "mean_conf": 0.4328199028968811,
+            "accuracy": 0.75
+          },
+          {
+            "bin": 5,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 6,
+            "n": 3,
+            "mean_conf": 0.6806756854057312,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 7,
+            "n": 2,
+            "mean_conf": 0.7375556230545044,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 8,
+            "n": 3,
+            "mean_conf": 0.8535528182983398,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 9,
+            "n": 102,
+            "mean_conf": 0.9846862554550171,
+            "accuracy": 1.0
+          }
+        ]
+      }
+    ],
+    "B_shared_cvc": [
+      {
+        "run": "B_shared_cvc_seed42",
+        "share_until": 11,
+        "n_predictions": 126,
+        "dece_point_estimate": 0.09445930272340773,
+        "dece_bootstrap_mean": 0.10029103089580756,
+        "dece_ci_95_low": 0.059353504983554906,
+        "dece_ci_95_high": 0.1450856542290051,
+        "bin_stats": [
+          {
+            "bin": 0,
+            "n": 12,
+            "mean_conf": 0.025976374745368958,
+            "accuracy": 0.5
+          },
+          {
+            "bin": 1,
+            "n": 1,
+            "mean_conf": 0.1518867462873459,
+            "accuracy": 0.0
+          },
+          {
+            "bin": 2,
+            "n": 2,
+            "mean_conf": 0.2857150137424469,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 3,
+            "n": 2,
+            "mean_conf": 0.3041987717151642,
+            "accuracy": 0.5
+          },
+          {
+            "bin": 4,
+            "n": 2,
+            "mean_conf": 0.44063010811805725,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 5,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 6,
+            "n": 1,
+            "mean_conf": 0.664677083492279,
+            "accuracy": 0.0
+          },
+          {
+            "bin": 7,
+            "n": 4,
+            "mean_conf": 0.7577145099639893,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 8,
+            "n": 6,
+            "mean_conf": 0.8483942151069641,
+            "accuracy": 0.8333333333333334
+          },
+          {
+            "bin": 9,
+            "n": 96,
+            "mean_conf": 0.9854311943054199,
+            "accuracy": 1.0
+          }
+        ]
+      },
+      {
+        "run": "B_shared_cvc_seed43",
+        "share_until": 11,
+        "n_predictions": 133,
+        "dece_point_estimate": 0.09944619591298856,
+        "dece_bootstrap_mean": 0.10681521162785469,
+        "dece_ci_95_low": 0.06426573190768071,
+        "dece_ci_95_high": 0.1508751008880834,
+        "bin_stats": [
+          {
+            "bin": 0,
+            "n": 22,
+            "mean_conf": 0.01209941878914833,
+            "accuracy": 0.36363636363636365
+          },
+          {
+            "bin": 1,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 2,
+            "n": 5,
+            "mean_conf": 0.24292445182800293,
+            "accuracy": 0.4
+          },
+          {
+            "bin": 3,
+            "n": 1,
+            "mean_conf": 0.3512164354324341,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 4,
+            "n": 3,
+            "mean_conf": 0.4630720913410187,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 5,
+            "n": 2,
+            "mean_conf": 0.5234980583190918,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 6,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 7,
+            "n": 1,
+            "mean_conf": 0.7683798670768738,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 8,
+            "n": 6,
+            "mean_conf": 0.8275105357170105,
+            "accuracy": 0.8333333333333334
+          },
+          {
+            "bin": 9,
+            "n": 93,
+            "mean_conf": 0.9867954254150391,
+            "accuracy": 1.0
+          }
+        ]
+      },
+      {
+        "run": "B_shared_cvc_seed44",
+        "share_until": 11,
+        "n_predictions": 124,
+        "dece_point_estimate": 0.09463065832612975,
+        "dece_bootstrap_mean": 0.09514593099473202,
+        "dece_ci_95_low": 0.05836430530614437,
+        "dece_ci_95_high": 0.13835556656997666,
+        "bin_stats": [
+          {
+            "bin": 0,
+            "n": 14,
+            "mean_conf": 0.028301071375608444,
+            "accuracy": 0.42857142857142855
+          },
+          {
+            "bin": 1,
+            "n": 2,
+            "mean_conf": 0.14357496798038483,
+            "accuracy": 0.5
+          },
+          {
+            "bin": 2,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 3,
+            "n": 1,
+            "mean_conf": 0.3982529938220978,
+            "accuracy": 0.0
+          },
+          {
+            "bin": 4,
+            "n": 2,
+            "mean_conf": 0.427158921957016,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 5,
+            "n": 2,
+            "mean_conf": 0.5491452217102051,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 6,
+            "n": 2,
+            "mean_conf": 0.635488748550415,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 7,
+            "n": 3,
+            "mean_conf": 0.7562902569770813,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 8,
+            "n": 4,
+            "mean_conf": 0.8517639636993408,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 9,
+            "n": 94,
+            "mean_conf": 0.9902252554893494,
+            "accuracy": 1.0
+          }
+        ]
+      }
+    ]
+  },
+  "ETIS-LaribPolypDB": {
+    "A_independent_etis": [
+      {
+        "run": "A_independent_etis_seed42",
+        "share_until": 0,
+        "n_predictions": 85,
+        "dece_point_estimate": 0.11589335646918593,
+        "dece_bootstrap_mean": 0.1198670138554675,
+        "dece_ci_95_low": 0.06607990956447525,
+        "dece_ci_95_high": 0.17888127825329048,
+        "bin_stats": [
+          {
+            "bin": 0,
+            "n": 55,
+            "mean_conf": 0.008103650994598866,
+            "accuracy": 0.09090909090909091
+          },
+          {
+            "bin": 1,
+            "n": 3,
+            "mean_conf": 0.15561839938163757,
+            "accuracy": 0.6666666666666666
+          },
+          {
+            "bin": 2,
+            "n": 2,
+            "mean_conf": 0.22977109253406525,
+            "accuracy": 0.5
+          },
+          {
+            "bin": 3,
+            "n": 2,
+            "mean_conf": 0.35299432277679443,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 4,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 5,
+            "n": 1,
+            "mean_conf": 0.5936099290847778,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 6,
+            "n": 1,
+            "mean_conf": 0.6976682543754578,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 7,
+            "n": 1,
+            "mean_conf": 0.7722867727279663,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 8,
+            "n": 4,
+            "mean_conf": 0.884058952331543,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 9,
+            "n": 16,
+            "mean_conf": 0.9669485688209534,
+            "accuracy": 1.0
+          }
+        ]
+      },
+      {
+        "run": "A_independent_etis_seed43",
+        "share_until": 0,
+        "n_predictions": 48,
+        "dece_point_estimate": 0.18418043106794357,
+        "dece_bootstrap_mean": 0.1863797417276825,
+        "dece_ci_95_low": 0.0985231756808692,
+        "dece_ci_95_high": 0.30071668829768894,
+        "bin_stats": [
+          {
+            "bin": 0,
+            "n": 20,
+            "mean_conf": 0.015416614711284637,
+            "accuracy": 0.3
+          },
+          {
+            "bin": 1,
+            "n": 1,
+            "mean_conf": 0.1398772895336151,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 2,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 3,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 4,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 5,
+            "n": 2,
+            "mean_conf": 0.5450194478034973,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 6,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 7,
+            "n": 2,
+            "mean_conf": 0.7433013916015625,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 8,
+            "n": 4,
+            "mean_conf": 0.8641393780708313,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 9,
+            "n": 19,
+            "mean_conf": 0.9830489754676819,
+            "accuracy": 1.0
+          }
+        ]
+      },
+      {
+        "run": "A_independent_etis_seed44",
+        "share_until": 0,
+        "n_predictions": 42,
+        "dece_point_estimate": 0.14895709989858524,
+        "dece_bootstrap_mean": 0.15167024859048184,
+        "dece_ci_95_low": 0.06923460212433598,
+        "dece_ci_95_high": 0.23954767039478092,
+        "bin_stats": [
+          {
+            "bin": 0,
+            "n": 13,
+            "mean_conf": 0.015150586143136024,
+            "accuracy": 0.23076923076923078
+          },
+          {
+            "bin": 1,
+            "n": 1,
+            "mean_conf": 0.15168505907058716,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 2,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 3,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 4,
+            "n": 2,
+            "mean_conf": 0.43850457668304443,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 5,
+            "n": 1,
+            "mean_conf": 0.5598227381706238,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 6,
+            "n": 1,
+            "mean_conf": 0.6951941847801208,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 7,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 8,
+            "n": 2,
+            "mean_conf": 0.8705690503120422,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 9,
+            "n": 22,
+            "mean_conf": 0.9782724976539612,
+            "accuracy": 1.0
+          }
+        ]
+      }
+    ],
+    "B_shared_etis": [
+      {
+        "run": "B_shared_etis_seed42",
+        "share_until": 11,
+        "n_predictions": 44,
+        "dece_point_estimate": 0.151852034942501,
+        "dece_bootstrap_mean": 0.15151420703012003,
+        "dece_ci_95_low": 0.0694638730253659,
+        "dece_ci_95_high": 0.24969824560308052,
+        "bin_stats": [
+          {
+            "bin": 0,
+            "n": 15,
+            "mean_conf": 0.009701947681605816,
+            "accuracy": 0.26666666666666666
+          },
+          {
+            "bin": 1,
+            "n": 1,
+            "mean_conf": 0.10367952287197113,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 2,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 3,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 4,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 5,
+            "n": 2,
+            "mean_conf": 0.559624433517456,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 6,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 7,
+            "n": 1,
+            "mean_conf": 0.7038731575012207,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 8,
+            "n": 2,
+            "mean_conf": 0.8747595548629761,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 9,
+            "n": 23,
+            "mean_conf": 0.9781156778335571,
+            "accuracy": 1.0
+          }
+        ]
+      },
+      {
+        "run": "B_shared_etis_seed43",
+        "share_until": 11,
+        "n_predictions": 40,
+        "dece_point_estimate": 0.21935147675685587,
+        "dece_bootstrap_mean": 0.2195955889836507,
+        "dece_ci_95_low": 0.11281218732066914,
+        "dece_ci_95_high": 0.3363939167922945,
+        "bin_stats": [
+          {
+            "bin": 0,
+            "n": 11,
+            "mean_conf": 0.01198401115834713,
+            "accuracy": 0.36363636363636365
+          },
+          {
+            "bin": 1,
+            "n": 2,
+            "mean_conf": 0.16729050874710083,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 2,
+            "n": 2,
+            "mean_conf": 0.240610271692276,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 3,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 4,
+            "n": 1,
+            "mean_conf": 0.47722524404525757,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 5,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 6,
+            "n": 1,
+            "mean_conf": 0.6218605041503906,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 7,
+            "n": 1,
+            "mean_conf": 0.7835047245025635,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 8,
+            "n": 2,
+            "mean_conf": 0.840350866317749,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 9,
+            "n": 20,
+            "mean_conf": 0.9857511520385742,
+            "accuracy": 1.0
+          }
+        ]
+      },
+      {
+        "run": "B_shared_etis_seed44",
+        "share_until": 11,
+        "n_predictions": 37,
+        "dece_point_estimate": 0.17691056027605725,
+        "dece_bootstrap_mean": 0.17788722913463073,
+        "dece_ci_95_low": 0.08731350358599183,
+        "dece_ci_95_high": 0.28570459509572027,
+        "bin_stats": [
+          {
+            "bin": 0,
+            "n": 6,
+            "mean_conf": 0.013225235044956207,
+            "accuracy": 0.5
+          },
+          {
+            "bin": 1,
+            "n": 1,
+            "mean_conf": 0.16869454085826874,
+            "accuracy": 0.0
+          },
+          {
+            "bin": 2,
+            "n": 1,
+            "mean_conf": 0.2455931156873703,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 3,
+            "n": 0,
+            "mean_conf": null,
+            "accuracy": null
+          },
+          {
+            "bin": 4,
+            "n": 1,
+            "mean_conf": 0.40158307552337646,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 5,
+            "n": 1,
+            "mean_conf": 0.500820517539978,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 6,
+            "n": 1,
+            "mean_conf": 0.6594164371490479,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 7,
+            "n": 3,
+            "mean_conf": 0.72901850938797,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 8,
+            "n": 1,
+            "mean_conf": 0.8561792373657227,
+            "accuracy": 1.0
+          },
+          {
+            "bin": 9,
+            "n": 22,
+            "mean_conf": 0.9860456585884094,
+            "accuracy": 1.0
+          }
+        ]
+      }
+    ]
+  }
+}
